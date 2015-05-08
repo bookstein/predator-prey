@@ -1,5 +1,5 @@
 # Lynx and Snowshoe Hare Cycle
-## A semi-unrealistic implementation of the [classic predator-prey relationship](http://www.enr.gov.nt.ca/programs/fur-bearing-animals/lynx-snowshoe-hare-cycle)
+A semi-unrealistic implementation of the [classic predator-prey relationship](http://www.enr.gov.nt.ca/programs/fur-bearing-animals/lynx-snowshoe-hare-cycle)
 
 ## Components
 
