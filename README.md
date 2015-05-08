@@ -18,11 +18,11 @@ Moss grows by eating sunlight. It can reproduce after it attains a certain volum
 
 ### Hares
 
-Snowshoe hares (in this scenario) survive by eating moss. They can reproduce at any time, but may starve to death.
+Snowshoe hares (in this scenario) survive by eating moss. They can reproduce once they reach adult size.
 
 ### Lynx
 
-Lynx prey on hares. They can reproduce at any time, but may starve to death.
+Lynx prey on hares. They can reproduce once they reach adult size.
 
 ### Ecosystem
 
