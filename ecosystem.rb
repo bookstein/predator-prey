@@ -40,4 +40,15 @@ class Ecosystem
     @animals[animal.name.to_sym] << animal
   end
 
+  def print_environment
+    sym = { moss: ".",
+            hare: "+",
+            lynx: "&"
+          }
+
+    @animals.each do |animal, array|
+      puts array.collect { |a| sym[a.name.to_sym] }.join
+    end
+  end
+
 end
