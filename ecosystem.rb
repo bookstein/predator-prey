@@ -14,8 +14,8 @@ class Ecosystem
     }
 
     moss.times { Moss.new(self) }
-    # hare.times { Hare.new(self) }
-    # lynx.times { Lynx.new(self) }
+    hare.times { Hare.new(self) }
+    lynx.times { Lynx.new(self) }
   end
 
   def change_season
