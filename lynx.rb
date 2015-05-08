@@ -1,21 +1,13 @@
-class Lynx
-  attr_reader :volume, :name
+class Lynx < Animal
 
   def initialize(ecosystem)
     # all that initialize should do is set attributes!!
     @volume = 1
+    @growth = 2
+    @adult_size = 8
     @name = "lynx"
-    @ecosystem = ecosystem
-    @ecosystem.add_animal(self) # automatically adds itself
+
+    super
   end
 
-  def eat
-    @volume += 1
-  end
-
-  def reproduce
-    if @volume > 3 # TODO: don't hardcode this number
-      Lynx.new(@ecosystem)
-    end
-  end
 end
