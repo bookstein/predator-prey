@@ -1,6 +1,15 @@
 # Lynx and Snowshoe Hare Cycle
 A semi-unrealistic implementation of the [classic predator-prey relationship](http://www.enr.gov.nt.ca/programs/fur-bearing-animals/lynx-snowshoe-hare-cycle)
 
+## Run the program
+
+From the root directory, in your terminal:
+`rake console`
+
+Once IRB starts, create a new ecosystem and pass in the starting numbers of moss, hares, and lynx.
+
+`e = Ecosystem.new(100, 50, 2)`
+
 ## Components
 
 ### Moss

@@ -2,7 +2,7 @@ class Ecosystem
   # tracks TIME, SUNLIGHT, ANIMALS
   attr_reader :season, :sunlight, :years, :animals
 
-  def initialize
+  def initialize(moss, hare, lynx)
     @sunlight = 100
     @amount_of_sunlight_change = 25
     @season = 0
@@ -12,6 +12,10 @@ class Ecosystem
       hare: [],
       lynx: []
     }
+
+    moss.times { Moss.new(self) }
+    # hare.times { Hare.new(self) }
+    # lynx.times { Lynx.new(self) }
   end
 
   def change_season
