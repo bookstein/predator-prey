@@ -14,6 +14,8 @@ class Moss
   end
 
   def reproduce
-    Moss.new(@ecosystem)
+    if @volume > 3 # TODO: don't hardcode this number
+      Moss.new(@ecosystem)
+    end
   end
 end
