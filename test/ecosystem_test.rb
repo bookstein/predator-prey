@@ -8,7 +8,7 @@ class EcosystemTest < Minitest::Test
 
   def test_create_new_ecosystem_with_animals
     # create new ecosystem, test that correct number of animals were entered
-    e = ::Ecosystem.new(10, 5, 2)
+    e = Ecosystem.new(10, 5, 2)
     assert_equal 10, e.animals[:moss].length
     assert_equal 5, e.animals[:hare].length
     assert_equal 2, e.animals[:lynx].length
@@ -16,10 +16,10 @@ class EcosystemTest < Minitest::Test
 
   # create new animals
   def test_create_new_animals
-    e = ::Ecosystem.new(10, 5, 2)
-    m = ::Moss.new(e)
-    h = ::Hare.new(e)
-    l = ::Lynx.new(e)
+    e = Ecosystem.new(10, 5, 2)
+    m = Moss.new(e)
+    h = Hare.new(e)
+    l = Lynx.new(e)
   end
 
 # create animals by reproduction, make sure they are added to ecosystem
@@ -40,8 +40,8 @@ class EcosystemTest < Minitest::Test
     l.reproduce
 
     # check added to ecosystem
-    assert_equal 1, e.animals[:moss].length
-    assert_equal 1, e.animals[:hare].length
-    assert_equal 1, e.animals[:lynx].length
+    assert_equal 2, e.animals[:moss].length
+    assert_equal 2, e.animals[:hare].length
+    assert_equal 2, e.animals[:lynx].length
   end
 end
