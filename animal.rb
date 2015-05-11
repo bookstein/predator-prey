@@ -13,7 +13,7 @@ class Animal
   end
 
   def reproduce
-    if @volume > @adult_size
+    if @volume >= @adult_size
       baby = self.class.new(@ecosystem)
     end
 
