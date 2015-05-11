@@ -18,19 +18,24 @@ task :run_sim do
   require_relative "hare"
   require_relative "lynx"
 
-  e = Ecosystem.new(10, 2, 2)
+  e = Ecosystem.new(200, 10, 2)
 
   while e.years < 1 # not e.animals[:moss].empty?
+    e.print_environment
 
     e.animals[:moss].each do |moss|
       moss.eat
     end
 
     e.animals[:hare].each do |hare|
-      hare.eat { e.animals[:moss].last.die }
+      hare.eat("moss")
+      # Tried passing in a block to #eat: { e.animals[:moss].last.die } <-- but this breaks if list is empty - no method #die on nil:NilClass
     end
 
-    e.print_environment
+    e.animals[:lynx].each do |lynx|
+      lynx.eat("hare")
+    end
+
     e.change_season
   end
 

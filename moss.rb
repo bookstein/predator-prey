@@ -10,4 +10,8 @@ class Moss < Animal
     super
   end
 
+  def eat
+    @volume += @growth
+  end
+
 end
