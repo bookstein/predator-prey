@@ -18,14 +18,16 @@ task :run_sim do
   require_relative "hare"
   require_relative "lynx"
 
-  e = Ecosystem.new(100, 10, 2)
+  e = Ecosystem.new(10, 2, 2)
 
   while e.years < 1 # not e.animals[:moss].empty?
 
-    # hares eat the moss
+    e.animals[:moss].each do |moss|
+      moss.eat
+    end
+
     e.animals[:hare].each do |hare|
-      hare.eat
-      hare.reproduce
+      hare.eat { e.animals[:moss].last.die }
     end
 
     e.print_environment

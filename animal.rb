@@ -8,8 +8,12 @@ class Animal
     @ecosystem.add_animal(self) # automatically adds itself
   end
 
-  def eat
+  def eat(&block)
     @volume += @growth
+
+    if block_given?
+      yield
+    end
   end
 
   def reproduce
@@ -18,5 +22,11 @@ class Animal
     end
 
     baby
+  end
+
+  def die
+    if not @ecosystem.animals[self.name.to_sym].empty?
+      @ecosystem.animals[self.name.to_sym].pop
+    end
   end
 end
