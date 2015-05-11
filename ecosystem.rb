@@ -37,9 +37,12 @@ class Ecosystem
             lynx: "&"
           }
 
+    puts "Season #{@season}, Year #{@years}"
+
     @animals.each do |animal, array|
       puts array.collect { |a| sym[a.name.to_sym] }.join
     end
-  end
 
+    puts "\n\n"
+  end
 end
