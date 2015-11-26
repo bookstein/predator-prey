@@ -17,17 +17,17 @@ class EcosystemTest < Minitest::Test
   # create new animals
   def test_create_new_animals
     e = Ecosystem.new(10, 5, 2)
-    m = Moss.new(e)
-    h = Hare.new(e)
-    l = Lynx.new(e)
+    m = Moss.new(ecosystem: e)
+    h = Hare.new(ecosystem: e)
+    l = Lynx.new(ecosystem: e)
   end
 
 # create animals by reproduction, make sure they are added to ecosystem
   def test_new_animals_added_to_ecosystem
     e = Ecosystem.new(0,0,0)
-    m = Moss.new(e)
-    h = Hare.new(e)
-    l = Lynx.new(e)
+    m = Moss.new(ecosystem: e)
+    h = Hare.new(ecosystem: e)
+    l = Lynx.new(ecosystem: e)
 
     # grow animals to adult size (able to reproduce)
     m.volume = m.adult_size

@@ -8,7 +8,7 @@ class AnimalTest < Minitest::Test
   end
 
   def test_animals_grow_by_eating
-    m = Moss.new(@e)
+    m = Moss.new(ecosystem: @e)
     initial_volume = m.volume
     m.eat
     final_volume = m.volume
@@ -17,14 +17,14 @@ class AnimalTest < Minitest::Test
   end
 
   def test_cannot_reproduce_before_adult
-    m = Moss.new(@e)
+    m = Moss.new(ecosystem: @e)
     baby = m.reproduce
 
     assert baby.nil? == true
   end
 
   def test_reproduction_after_adult
-    m = Moss.new(@e)
+    m = Moss.new(ecosystem: @e)
     m.volume = m.adult_size
     baby = m.reproduce
 

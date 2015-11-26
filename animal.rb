@@ -1,11 +1,16 @@
+# Animal is an abstract superclass.
+# It allows inheritors to supply specializations,
+# and provides hook methods to avoid 'super' and reduce coupling
 class Animal
 
   attr_accessor :volume
   attr_reader :adult_size, :name, :growth
 
-  def initialize(ecosystem)
-    @ecosystem = ecosystem
-    @ecosystem.add_animal(self) # automatically adds itself
+  def initialize(args={})
+    # all that initialize should do is set attributes!!
+    @ecosystem = args[:ecosystem]
+
+    post_initialize(args)
   end
 
   def eat(prey_name)
@@ -24,7 +29,7 @@ class Animal
 
   def reproduce
     if @volume >= @adult_size
-      baby = self.class.new(@ecosystem)
+      baby = self.class.new(ecosystem: @ecosystem)
     end
 
     baby
@@ -32,5 +37,10 @@ class Animal
 
   def die
     @ecosystem.animals[self.name.to_sym].pop unless self.nil? == true || @ecosystem.animals[self.name.to_sym].empty?
+  end
+
+  # this is a hook that all subclasses should override
+  def post_initialize(args)
+    raise "Must add animal to the ecosystem"
   end
 end
