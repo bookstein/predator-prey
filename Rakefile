@@ -20,6 +20,8 @@ task :run_sim do
 
   e = Ecosystem.new(200, 10, 2)
 
+  puts "moss = .\nhare = +\nlynx = &\n\n"
+
   while e.years < 1 # not e.animals[:moss].empty?
     e.print_environment
 
