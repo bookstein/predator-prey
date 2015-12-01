@@ -6,7 +6,7 @@ class Hare < Animal
     @adult_size = 5
     @name = "hare"
 
-    @ecosystem.add_animal(self) # automatically adds itself
+    add_to_ecosystem
   end
 
 end

@@ -6,7 +6,7 @@ class Lynx < Animal
     @adult_size = 8
     @name = "lynx"
 
-    @ecosystem.add_animal(self) # automatically adds itself
+    add_to_ecosystem
   end
 
 end

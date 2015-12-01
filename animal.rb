@@ -36,11 +36,15 @@ class Animal
   end
 
   def die
-    @ecosystem.animals[self.name.to_sym].pop unless self.nil? == true || @ecosystem.animals[self.name.to_sym].empty?
+    @ecosystem.animals[self.name.to_sym].pop unless self.nil?
+  end
+
+  def add_to_ecosystem
+    @ecosystem.animals[self.name.to_sym] << self
   end
 
   # this is a hook that all subclasses should override
   def post_initialize(args)
-    raise "Must add animal to the ecosystem"
+    raise "Must add animal to ecosystem"
   end
 end

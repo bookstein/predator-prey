@@ -6,7 +6,7 @@ class Moss < Animal
     @growth = 1
     @name = "moss"
 
-    @ecosystem.add_animal(self) # automatically adds itself
+    add_to_ecosystem
   end
 
   def eat

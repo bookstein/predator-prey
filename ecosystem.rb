@@ -27,10 +27,6 @@ class Ecosystem
     @years
   end
 
-  def add_animal(animal)
-    @animals[animal.name.to_sym] << animal
-  end
-
   def print_environment
     sym = { moss: ".",
             hare: "+",
