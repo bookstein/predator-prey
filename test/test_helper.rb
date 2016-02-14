@@ -3,6 +3,7 @@
 ### configure libraries (ie, change Minitest behavior)
 ### load other libraries (ie, YAML config)
 
+gem "minitest"
 require 'minitest/autorun' # `require` => with relation to the paths in our $LOAD_PATH
 
 # add root directory to LOAD_PATH

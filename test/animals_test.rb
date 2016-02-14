@@ -1,33 +1,59 @@
 require_relative "test_helper"
 
 class AnimalTest < Minitest::Test
+  describe "Animal Class" do
 
-  def setup
-    # creates values that can be used for all tests
-    @e = ::Ecosystem.new(0,0,0)
-  end
+    before do
+      @e = ::Ecosystem.new(0,0,0)
+    end
 
-  def test_animals_grow_by_eating
-    m = Moss.new(ecosystem: @e)
-    initial_volume = m.volume
-    m.eat
-    final_volume = m.volume
+    describe "on creation" do
+      it "adds itself to the ecosystem" do
+        m = Moss.new(ecosystem: @e)
+        assert_equal 1, @e.animals[:moss].size
+      end
+    end
 
-    assert_equal initial_volume + m.growth, final_volume
-  end
+    describe "eats" do
+      it "grows volume" do
+        m = Moss.new(ecosystem: @e)
+        initial_volume = m.volume
+        m.eat
+        final_volume = m.volume
 
-  def test_cannot_reproduce_before_adult
-    m = Moss.new(ecosystem: @e)
-    baby = m.reproduce
+        assert_equal initial_volume + m.growth, final_volume
+      end
+    end
 
-    assert baby.nil? == true
-  end
+    describe "at juvenile size" do
+      it "does not reproduce" do
+        m = Moss.new(ecosystem: @e)
+        baby = m.reproduce
+        assert baby.nil? == true
+      end
+    end
 
-  def test_reproduction_after_adult
-    m = Moss.new(ecosystem: @e)
-    m.volume = m.adult_size
-    baby = m.reproduce
+    describe "at adult size" do
+      it "reproduces" do
+        m = Moss.new(ecosystem: @e)
+        m.volume = m.adult_size
+        baby = m.reproduce
 
-    assert baby.nil? == false
+        assert baby.nil? == false
+        assert_equal 2, @e.animals[:moss].size
+      end
+    end
+
+    describe "when it dies" do
+      it "removes itself from the ecosystem" do
+        initial_pop = @e.animals[:moss].size
+        m = Moss.new(ecosystem: @e)
+        m.die
+        final_pop = @e.animals[:moss].size
+
+        assert initial_pop == final_pop
+      end
+    end
+
   end
 end
