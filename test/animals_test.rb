@@ -1,7 +1,7 @@
 require_relative "test_helper"
 
 class AnimalTest < Minitest::Test
-  describe "Animal Class" do
+  describe "Animal Abstract Class" do
 
     before do
       @e = ::Ecosystem.new(0,0,0)
@@ -11,17 +11,6 @@ class AnimalTest < Minitest::Test
       it "adds itself to the ecosystem" do
         m = Moss.new(ecosystem: @e)
         assert_equal 1, @e.animals[:moss].size
-      end
-    end
-
-    describe "eats" do
-      it "grows volume" do
-        m = Moss.new(ecosystem: @e)
-        initial_volume = m.volume
-        m.eat
-        final_volume = m.volume
-
-        assert_equal initial_volume + m.growth, final_volume
       end
     end
 
